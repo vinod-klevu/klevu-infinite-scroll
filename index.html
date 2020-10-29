@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./landing/assets/css/quick/klevu-quick.css">
+        <link rel="stylesheet" href="./landing/assets/css/landing/klevu-landing.css">
+    </head>
+<body>
+    <!--
+        This is just a basic HTML form that we will use
+        to illustrate some basic auto-suggest functionality.
+    -->
+    <div>
+        <form action="javascript:void(0);" method="get">
+            <label for="search">Search</label>
+            <input type="text" name="q" id="search" />
+          </form>    
+    </div>
+        
+    
+    <!-- LANDING PAGE TEMPLATES -->
+    
+    
+    <script type="template/klevu" id="klevuLandingTemplateBase">
+        <div class="kuContainer">
+            <% if(!helper.hasResults(data,"productList")) { %>
+                <%=helper.render('noResultFound',scope) %>
+                <% } else { %>
+                <%=helper.render('results',scope) %>
+                <% }%>
+                <div class="kuClearBoth"></div>
+            </div>
+        </script>
+        
+    
+        
+    <script type="template/klevu" id="klevuLandingTemplateProductBlock">
+        <li class="klevuProduct" data-id="<%=dataLocal.id%>">
+            <div class="kuProdWrap">
+                <%if(dataLocal.stickyLabelHead && dataLocal.stickyLabelHead != "") { %>
+                    <div class="kuDiscountBadge">
+                        <span class="kuiscountTxt"><%=dataLocal.stickyLabelHead%><span><%=dataLocal.stickyLabelTail%></span></span>
+                    </div>
+                    <% } %>
+                    <div class="kuProdTop">
+                    <% if(dataLocal["image"] != undefined && dataLocal.image !== "") { %>
+                        <div class="klevuImgWrap">
+                            <a href="<%=dataLocal.url%>" class="klevuProductClick"><span class="kuprodImgSpan"><img src="<%=dataLocal.image%>" alt="<%=dataLocal.name%>" class="kuProdImg"></span></a>
+                        </div>
+                        <% } %>
+                    </div>
+                    <% var desc = [dataLocal.summaryAttribute,dataLocal.packageText,dataLocal.summaryDescription].filter(function(el) { return el; }); desc = desc.join(" "); %>
+                <div class="kuProdBottom">
+                    <div class="kuNameDesc">
+                        <div class="kuName"><a href="<%=dataLocal.url%>" class="klevuProductClick"><%=dataLocal.name%></a></div>
+                        <div class="kuDesc"><%=desc%></div>
+                    </div>                   
+                    <div class="kuPrice">
+                        <% if(dataLocal.ondiscount && dataLocal.ondiscount == "true") { %>
+                            <% if(dataLocal.salePrice ) { %><div class="kuSalePrice kuSpecialPrice"><%=helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.salePrice) )%></div><% } %>
+                            <% if(dataLocal.price) { %><div class="kuOrigPrice"><%=helper.translate("Original price %s",helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.price)))%></div><% } %>
+                            <% } else { %>
+                            <% if(dataLocal.salePrice ) { %><div class="kuSalePrice"><%=helper.processCurrency(dataLocal.currency,parseFloat(dataLocal.salePrice) )%></div><% } %>
+                        <% } %>
+                        <div class="kuClearBoth"></div>
+                    </div>
+                </div>
+                <div class="kuClearLeft"></div>                
+            </div>
+        </li>
+    </script>
+    
+    
+    <script type="template/klevu" id="klevuLandingTemplateResults">
+        <div class="kuResultsListing">
+            <div class="productList klevuMeta" data-section="productList">
+                <div class="kuResultContent">
+                    
+                    <div class="kuResultWrap">
+                        <div class="kuClearBoth"></div>
+                        <div class="kuResults kuGridView">
+                            <ul>
+                                <% helper.each(data.query.productList.result,function(key,item){ %>
+                                    <% if(item.typeOfRecord == "KLEVU_PRODUCT") { %>
+                                        <%=helper.render('productBlock',scope,data,item) %>
+                                        <% }%>
+                                        <% }); %>
+                                    </ul>
+                                    <div class="kuClearBoth"></div>
+                        </div>
+                        <div id="loadMore" data-value="1">Load More...</div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    
+    
+    
+        
+        
+        
+    <!-- search results placeholder -->
+    <div class="klevuLanding"></div>
+    
+    <script src="https://js.klevu.com/klevu-js-v2/2.0/klevu_debug.js"></script>
+    <script src="./landing/assets/js/klevu-settings.js"></script>
+    <script src="./landing/assets/js/quick/klevu-quick.js"></script>
+    <script src="./landing/assets/js/landing/klevu-landing.js"></script>
+    
+</body>
+</html>
