@@ -1188,6 +1188,1423 @@
 }
 
 
+.kuContainer {
+    width: 100% !important;
+}
+@media only screen and (max-width: 1024px) {
+    .kuResultWrap {
+        width: 72%;
+    }
+    .kuFilters {
+        width: 28%;
+    }
+    .kuFilterNames ul li a span.kufacet-text {
+        max-width: 60%;
+        width: 60%;
+    }
+    .kuSortingOpt label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .kuSortHeader {
+        width: 100%;
+    }
+    .kuResults ul li {
+        width: 33%;
+        padding: 5px;
+    }
+    .kuDropdown {
+        min-width: 150px;
+    }
+}
+@media only screen and (max-width:900px) {
+    .kuResults ul li {
+        width: 50%;
+    }
+}
+@media only screen and (max-width:767px) {
+    .kuResults ul li {
+        width: 50%;
+    }
+    .kuFilters {
+        display: block !important;
+        float: none !important;
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+    .kuTotResults {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    .kuResultWrap {
+        float: none;
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+    }
+    .kuSortHeader {
+        margin: 0px;
+    }
+    .kuLandingNoResultsMessage {
+        font-size: 15px;
+        line-height: 1.2em;
+        padding: 10px 5%;
+        text-align: center;
+    }
+}
+/*--- for enabling filters in mobile and filter tags--*/
+@media only screen and (max-width: 640px) {
+    .kuContainer .kuTabs a {
+        display: inline-block;
+    }
+    .kuContainer .kuTabs a:hover {
+        border-bottom: 0px solid #dddddd;
+        text-decoration: none;
+        background: #f5f5f5;
+    }
+    .kuContainer a.kuTabSelected {
+        border-bottom: 0px solid #dddddd;
+        background: #f5f5f5;
+        transition: all 0.3s ease;
+    }
+    .kuFilterRefineMobile {
+        border: none;
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        height: 32px;
+        line-height: 32px;
+        margin: 10px 0px;
+        padding-right: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #333333;
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+    .kuFilterRefineMobile.kuExpand::after {
+        top: 10px
+    }
+    .kuFilterRefineMobile.kuCollapse::after {
+        top: 14px
+    }
+    .kuFilterBox {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .kuFilterRefineMobile .KuFilterLabelTxt {
+        position: relative
+    }
+    .kuFilterRefineMobile.kuExpand .KuFilterLabelTxt::after {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #333333;
+        border-image: none;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        content: "";
+        display: inline-block;
+        padding: 3px;
+        position: absolute;
+        right: -18px;
+        top: 3px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        transition: all 0.3s ease;
+    }
+    .kuFilterRefineMobile.kuCollapse .KuFilterLabelTxt::after {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #333333;
+        border-image: none;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        content: "";
+        display: inline-block;
+        padding: 3px;
+        position: absolute;
+        right: -18px;
+        top: 8px;
+        -webkit-transform: rotate(-135deg);
+        -moz-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        transition: all 0.3s ease;
+    }
+    /* css for filter tags*/
+    .kuContainer #ku-search-filter-tags {
+        display: block !important;
+        color: #333333;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: left;
+        padding-bottom: 8px;
+        padding-left: 0px;
+        position: relative;
+    }
+    .ku-search-filter-tag {
+        background: #eee;
+        border: 0px solid #f8f8f8;
+        margin-right: 4px;
+        border-radius: 0px;
+        font-size: 11px;
+        padding: 0px 5px;
+        color: #333333;
+        margin-bottom: 4px;
+        display: inline-block;
+        line-height: 20px;
+    }
+    .ku-search-filter-remove, .ku-search-filter-remove-all {
+        cursor: pointer;
+        font-size: 12px;
+        color: #333333;
+        text-decoration: none;
+    }
+    .ku-search-filter-remove-all a {
+        color: #333333;
+        font-size: 12px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .ku-search-filter-remove-all a:hover {
+        color: #333333;
+    }
+}
+/* ends filters in mobile and filter tags----------*/
+@media only screen and (max-width: 480px) {
+    .kuOrQueryMessage {
+        margin: 10px 5px;
+    }
+    .kuDropdown {
+        min-width: 140px;
+        margin-right: 5px;
+    }
+    .kuDropdownLabel {
+        display: inline-block;
+        padding: 5px 5px;
+        padding-right: 20px;
+        font-size: 11px;
+    }
+    .kuDropdownLabel:after {
+        right: 5px;
+        padding: 3px;
+        top: 7px;
+    }
+    .kuView {
+        min-width: 60px;
+        margin: 5px;
+    }
+    .kuResults ul li .kuAddtocart, .kuResults ul li .kuPrice {
+        width: 100%;
+        float: none;
+        text-align: left;
+    }
+    .kuSortingOpt {
+        padding: 5px 0px;
+
+    }
+}
+@media only screen and (max-width: 400px) {
+    .kuResults ul li {
+        width: 100%;
+    }
+}
+
+
+.productList,
+.contentList {
+    display: none;
+}
+
+.productListActive .productList,
+.contentListActive .contentList {
+    display: block;
+}
+
+
+/*
+*   Styles for Landing page Add to cart button 
+*/
+
+.kuAddtocart {
+    margin: 10px auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    vertical-align: middle;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    transition: all 0.3s ease;
+    float: none;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.kuAddtocart a.kuAddtocartBtn {
+    background: #333333;
+    color: #FFFFFF;
+    padding: 0px 8px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0px;
+    border: none;
+    height: 30px;
+    transition: all 0.3s ease;
+    border-radius: 0px;
+    text-align: right;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+/*
+*   Color Swatches styles
+*/
+
+.kuSwatches {
+    width: 100%;
+    padding: 5px 2px;
+    border: none;
+    min-height: 30px;
+    max-width: 300px;
+    float: none;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.kuSwatchItem {
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    max-height: 28px;
+    max-width: 28px;
+    border: none;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 28px;
+    vertical-align: top;
+    text-align: center;
+    margin: 2px;
+}
+
+.kuSwatchItem a.kuSwatchLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-size: contain;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    border-radius: 0px;
+    transition: all 0.1s;
+    background-color: transparent;
+    text-decoration: none;
+    color: #000;
+    box-sizing: border-box;
+    outline: 1px solid #dedede;
+}
+
+.kuSwatchItem a.kuSwatchLink.active,
+.kuSwatchItem a.kuSwatchLink:hover,
+.kuSwatchItem a.kuSwatchLink:focus {
+    text-decoration: none;
+    box-shadow: none;
+    outline-width: 2px;
+}
+
+.kuSwatchItem.kuSwatchMore {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    background-color: transparent;
+}
+
+.kuSwatchMoreText {
+
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+}
+
+.kuSwatchItem.kuDefaultSwatch a.kuSwatchLink {
+    background-color: #eee !important;
+}
+
+/*
+*   Styels for Product grid quick view
+*/
+
+.kuClearfix {
+    clear: both !important;
+}
+
+.kuModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden !important;
+}
+
+.productQuickView .kuModal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 2.5rem;
+    width: 65%;
+    border-radius: 4px;
+}
+
+.productQuickView .close-button {
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    overflow: visible;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    -webkit-appearance: none;
+    display: block;
+    outline: 0;
+    padding: 0;
+    box-shadow: none;
+    touch-action: manipulation;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 2rem;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+    color: #000;
+}
+
+.productQuickView .close-button:hover {
+    opacity: 1;
+}
+
+.productQuickView .show-modal {
+    z-index: 999;
+    opacity: 1;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.productQuick-imgBlock {
+    float: left;
+    display: inline-block;
+    width: 50%;
+    max-width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+    font-family: inherit;
+}
+
+.productQuick-imgBlock img {
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.productQuick-contentBlock {
+    float: left;
+    display: inline-block;
+    width: 50%;
+    max-width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: inherit;
+}
+
+.productQuickView .imgWrap {
+    padding: 5px;
+    background: transparent;
+    border: 1px solid #F2F2F2;
+    outline: none;
+    text-align: center;
+}
+
+.productQuick-title {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 130%;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.productQuick-divider {
+    display: block;
+    width: 100%;
+    margin: 1rem auto;
+    height: 1px;
+    background: #ddd;
+}
+
+.productQuickView .kuBtn {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    margin-right: 10px;
+}
+
+.productQuickView .kuBtn-primary {
+    background: #000000;
+    color: #FFFFFF;
+    border-color: #000000;
+}
+
+.productQuickView .kuBtn-primary-outline {
+    background: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.productQuickView .kuBtn-primary:hover {
+    background: transparent;
+    color: #000000;
+}
+
+.productQuickView .kuBtn-primary-outline:hover {
+    background: #f9f9f9;
+}
+
+.productQuick-Price {
+    font-size: 1.5rem;
+    line-height: 150%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #000;
+}
+
+span.productQuick-origPrice {
+    display: inline-block;
+    margin-right: 5px;
+    color: #888;
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+.productQuick-shortDesc {
+    font-size: 1.1rem;
+    line-height: 135%;
+    color: inherit;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+span.productQuick-label {
+    font-size: 1rem;
+    opacity: 0.80;
+    color: #444;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.productQuick-extraInfo>div {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.kuQuickView {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    margin-left: -50px;
+    width: 100px;
+    text-align: center;
+}
+
+.kuProdWrap:hover .kuQuickView {
+    right: 5px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.kuQuickViewBtn {
+    background: #ececec;
+    border: 1px solid #d6d5d5;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+.kuQuickViewBtn:hover {
+    opacity: 0.80;
+}
+
+@media (max-width:1366px) {
+    .productQuickView .kuModal-content {
+        width: 85%;
+    }
+}
+
+@media (max-width:850px) {
+    .productQuickView .kuModal-content {
+        width: 65%;
+    }
+
+    .productQuick-imgBlock,
+    .productQuick-contentBlock {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .kuQuickView {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .productQuickView .kuModal-content {
+        overflow: auto;
+        max-height: 96%;
+    }
+}
+
+@media (max-width:640px) {
+    .productQuickView .kuModal-content {
+        width: 85%;
+        padding: 2rem 1rem;
+    }
+
+    .productQuick-title {
+        font-size: 1.25rem;
+    }
+
+    .productQuickView .kuBtn {
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 0.85rem;
+    }
+}
+
+/*
+*   Color Swatches styles
+*/
+
+.kuSwatches {
+    width: 100%;
+    padding: 5px 2px;
+    border: none;
+    min-height: 30px;
+    max-width: 300px;
+    float: none;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.kuSwatchItem {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    max-height: 32px;
+    max-width: 32px;
+    border: none;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 32px;
+    vertical-align: top;
+    text-align: center;
+    margin: 2px;
+}
+
+.kuSwatchItem a.kuSwatchLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 2px;
+    background-size: contain;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    border-radius: 0px;
+    transition: all 0.1s;
+    background-color: transparent;
+    text-decoration: none;
+    color: #000;
+    box-sizing: border-box;
+    outline: 1px solid #dedede;
+}
+
+.kuSwatchItem a.kuSwatchLink.active,
+.kuSwatchItem a.kuSwatchLink:hover,
+.kuSwatchItem a.kuSwatchLink:focus {
+    text-decoration: none;
+    box-shadow: none;
+    outline-width: 2px;
+}
+
+.kuSwatchItem.kuSwatchMore {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    background-color: transparent;
+}
+
+.kuSwatchMoreText {
+
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+}
+
+.kuSwatchItem.kuDefaultSwatch a.kuSwatchLink {
+    background-color: #eee !important;
+}
+
+/*
+*   Custom pagination bar styles
+*/
+
+.kuPaginationBar {
+  width: auto;
+  float: right;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+  border: 1px solid #ddd;
+  background: #FFF;
+  margin: 4px 8px 0px 0px;
+  border-radius: 3px;
+}
+
+
+.kuPaginationBar a {
+  font-style: normal;
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  color: #333333;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.1s ease;
+  border-right: 1px solid #ddd;
+  float: left;
+}
+
+.kuPaginationBar .kuActive {
+  background: #333333;
+  color: #fff;
+  border-radius: 0px;
+  border-width: 0px;
+}
+
+.kuPaginationBar a:hover {
+  background: #ececec;
+}
+
+.kuPaginationBar .kuActive:hover {
+  background: #333333;
+  color: #fff;
+}
+
+.kuPaginationBar a:last-child {
+  border-right: 0px;
+}
+
+.kuPaginationBar .kuActive:hover,
+.kuPaginationBar .kuActive:focus {
+  color: #ffffff !important;
+}
+
+.kuPaginationBar a:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.kuPaginationBar a:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/*
+*   Price slider filter styles
+*/
+
+.kuPriceSlider {
+    width: 350px;
+    max-width: 100%;
+    padding: 10px 20px 80px 20px;
+    margin: 20px auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.kuSliderVal {
+    font-size: 1rem;
+    line-height: 130%;
+    margin: 50px 0px 20px 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.kuSliderVal-min,
+.kuSliderVal-max {
+    padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    color: #333;
+    outline: none;
+    position: absolute;
+    min-width: 85px;
+    margin: 5px;
+    line-height: 100%;
+    box-sizing: border-box;
+    background: #eee;
+}
+
+.kuSliderVal span.kulabel {
+    position: absolute;
+    top: -24px;
+    left: 0;
+    color: #888;
+    font-size: 90%;
+}
+
+.kuSliderVal-min {
+    left: -17px;
+}
+
+.kuSliderVal-max {
+    right: -10px;
+}
+
+.kuPriceSlider span.kuSliderTo {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    margin-left: -15px;
+    width: 30px;
+    display: inline-block;
+    opacity: 0.45;
+}
+
+.sliderFilterNames {
+    height: 150px;
+}
+
+/*
+*   Mobile view slider filter 
+*/
+
+.kuFiltersHeader,
+.kuFiltersFooter,
+.kuBtn.kuFacetsSlideIn {
+    display: none !important;
+}
+
+@media only screen and (max-width:768px) {
+
+    .kuResultWrap {
+        float: none;
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .kuFiltersHeader,
+    .kuFiltersFooter {
+        display: block !important;
+    }
+
+    .kuFilters {
+        height: 100%;
+        width: 0 !important;
+        position: fixed;
+        z-index: 101;
+        top: 0;
+        left: 0;
+        background-color: #FFF;
+        overflow-x: hidden;
+        transition: 0.2s;
+        padding: 55px 0px;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .kuFilters .kuFilterHead {
+        padding-left: 0px;
+
+    }
+
+    .kuFilters.kuFiltersIn {
+        width: 100% !important;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .kuFiltersHeader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #F5F5F5;
+        padding: 0px 10px;
+        text-align: left;
+    }
+
+    .kuFiltersFooter {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #F5F5F5;
+        padding: 0px 10px;
+        text-align: right;
+    }
+
+    .kuFilters.kuFiltersIn .kuFiltersHeader,
+    .kuFilters.kuFiltersIn .kuFiltersFooter {
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .kuBtn {
+        display: inline-block;
+        padding: 5px 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin: 10px !important;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        margin-right: 10px !important;
+        font-size: 0.80rem;
+        border-radius: 4px;
+        cursor: pointer;
+        min-width: 70px;
+        text-align: center;
+    }
+
+    .kuBtn.kuFacetsSlideIn {
+        background: #000000;
+        color: #FFF;
+        border-color: #000;
+        z-index: 1;
+        display: inline-block !important;
+        margin: 0px;
+    }
+
+    .kuBtn.kuFacetsSlideOut {
+        background: #000;
+        color: #FFF;
+        border-color: #000;
+        z-index: 2;
+    }
+
+    .kuFiltersHeader .kuBtn.kuFacetsSlideOut {
+        border: none;
+        margin-left: 0px;
+        background: none;
+        color: #000;
+        border: none;
+    }
+
+    .kuBtn:hover,
+    .kuBtn:focus {
+        opacity: 0.80;
+
+    }
+
+    .kuFiltersFooter.kuFixed {
+        position: fixed;
+    }
+
+    .kuMobileFilterCloseBtn {
+        color: #000000 !important;
+        background: #f5f5f5 !important;
+    }
+
+}
+
+/*
+*   Product badge styles
+*/
+.kuDiscountBadge {
+    top: 6px;
+    right: 6px;
+    position: absolute;
+    background: #333333;
+    padding: 0px;
+    color: #FFFFFF;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-weight: normal;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1;
+    font-size: 12px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+}
+
+.kuDiscountBadge span {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+/*
+*   Product stock label styles
+*/
+
+.kuCaptionStockIn {
+    font-size: 11px;
+    color: green;
+    display: inline-block;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+.kuCaptionStockOut {
+    font-size: 11px;
+    color: Red;
+    display: inline-block;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+/*
+*   Product VAT label styles
+*/
+
+.kuCaptionVat {
+    display: block;
+    font-size: 11px;
+    color: #767676;
+    width: 100%;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 2px 0px;
+}
+
+
+/* Common CSS for default filters */
+.kuFilters {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    float: none;
+}
+
+/* set the height of each filter*/
+
+.kuFilterBox {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    background: none;
+    padding-bottom: 18px;
+    position: relative;
+    float: none;
+    width: 100%;
+}
+
+.kuFilterNames {
+    height: 118px;
+    overflow: hidden;
+}
+
+.kuFilterNames.kuFilterShowAll {
+    height: auto;
+    overflow: unset;
+}
+
+/* heading of filters i.e brand, color */
+
+.kuFilterHead {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px;
+    color: #333333;
+    display: block;
+    line-height: 1.8;
+    text-transform: uppercase;
+    border-bottom: 1px solid #EEEEEE;
+    background: none;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* down arrow div in filters */
+
+.kuShowOpt {
+    padding: 0px 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5px;
+}
+
+
+/* up arrow div in filters */
+
+
+/* down & up arrow link color in filters */
+
+.kuShowOpt a,
+.kuHideOpt a {
+    color: #333333;
+    text-decoration: none;
+}
+
+
+/* show more dot icon*/
+
+.kuFilterDot {
+    height: 5px;
+    width: 5px;
+    background-color: #333333;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+}
+
+
+/* set list for filters */
+
+.kuFilterNames ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* style for each list item in filter */
+
+.kuFilterNames ul li {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.kuFilterNames ul li a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 0px;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
+    color: #333333;
+    background: none;
+    margin: 2px;
+    margin-left: 5px;
+}
+
+
+/* set color for selected filter */
+
+.kuFilterNames ul li.kuSelected a {
+    color: #333333;
+}
+
+.kuFilterNames ul li a span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 120%;
+}
+
+.kuFilterNames ul li a span.kufacet-text {
+    max-width: 74%;
+    width: 74%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+
+/* Radio button for the filter */
+
+.kuFilterNames ul li a span.kuFilterIcon {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+
+.kuFilterIcon:before {
+    content: '';
+    border: 2px solid #DDDDDD;
+    border-radius: 50%;
+    margin: 0px;
+    margin-right: 6px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #DDDDDD;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: background 200ms;
+    -webkit-transition: background 200ms;
+    -moz-transition: background 200ms;
+    -webkit-transition: border-color 200ms;
+    -moz-transition: border-color 200ms;
+    transition: border-color 200ms;
+}
+
+.kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #FFFFFF;
+}
+
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #FFFFFF;
+}
+
+.kuFilterNames ul li a:hover span.kuFilterIcon:after,
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #333333;
+    top: 5px;
+    left: 5px;
+    border: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 50%;
+}
+
+.kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    border-color: #333333;
+}
+
+.kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333333;
+}
+
+
+/* total nos of results available for filter & shows cancel button if filter is selected */
+
+.kuFilterNames ul li a span.kuFilterTotal,
+.kuFilterNames ul li a span.kuFilterCancel {
+    float: right;
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* set background color on hover of filter */
+
+.kuFilterNames ul li a:hover {
+    cursor: pointer;
+}
+
+
+/* set background color for selected filter */
+
+.kuFilterNames ul li.kuSelected a {
+    color: #333333;
+}
+
+.kuMulticheck .kuFilterIcon:before {
+    content: '';
+    border: 1px solid #DDDDDD;
+    border-radius: 0px;
+    margin: 0px;
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    color: #DDDDDD;
+    position: relative;
+}
+
+.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:before {
+    background: #FFFFFF;
+    border: 1px solid #333333;
+}
+
+.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:before {
+    background: #FFFFFF;
+    border: 1px solid #333333;
+}
+
+.kuMulticheck .kuFilterNames ul li a:hover span.kuFilterIcon:after,
+.kuMulticheck .kuFilterNames ul li.kuSelected span.kuFilterIcon:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background: transparent;
+    top: 4px;
+    left: 4px;
+    border: 2px solid #DDDDDD;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.kuMulticheck .kuFilterNames ul li.kuSelected:hover span.kuFilterIcon:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: #333333;
+}
+
+/* CSS for filters on left */
+.kuFilters {
+    float: left;
+    width: 20%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.kuResultWrap {
+    width: 80%;
+    padding-left: 20px;
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+    .kuResultWrap {
+        width: 72%;
+    }
+
+    .kuFilters {
+        width: 28%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .kuFilters {
+        width: 100%;
+    }
+
+    .kuFilterBox {
+        margin-bottom: 5px;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+
+    .kuResultWrap {
+        width: 100%;
+        padding: 0px;
+    }
+}
+
+/*
+Style for landing page banner
+*/
+
+.kuBannerAd {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.kuBannerAd img {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
 /* Loadmore button */
 
 #loadMore{
