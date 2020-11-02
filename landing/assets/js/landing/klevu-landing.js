@@ -222,7 +222,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     
                     // tag that holds offset and we click on this to trigger next page 
                     // and then increament it's value here
-                    klevu.dom.find('#loadMore')[0].dataset.value = offset;
+                    klevu.dom.find('#loadMore')[0].dataset.page = offset;
                 }
             }
         });
