@@ -196,12 +196,19 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     var target = klevu.getSetting(scope.kScope.settings, "settings.search.searchBoxTarget");
 
                     // offset stored in variable
-                    var offset = data.localOverrides.query.productList.settings.offset != undefined ? ++data.localOverrides.query.productList.settings.offset : 1;
+                    var offset; 
+                    var limit = scope.kScope.template.getData().query.productList.result.length;
+                    if(data.localOverrides.query.productList.settings.offset != undefined){
+                        var prevOffset = data.localOverrides.query.productList.settings.offset;
+                        var nextOffset = prevOffset + limit;
+                        offset = nextOffset;
+                    }else{
+                        offset = limit;
+                    }
 
                     klevu.search.landing.getScope().chains.events.keyUp.remove({name:"scrollToTop"});
-                    var localFilters = data.localOverrides.query.productList.settings.filters;
                     // if result exist then append new data
-                    if (offset > 1) {
+                    if (offset > limit) {
 
                         // we are going to render template so this chain will be called again and bind the click again
                         // so we can avoid that by removing it.
