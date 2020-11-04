@@ -200,7 +200,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     var limit = scope.kScope.template.getData().query.productList.result.length;
                     if(data.localOverrides.query.productList.settings.offset != undefined){
                         var prevOffset = data.localOverrides.query.productList.settings.offset;
-                        var nextOffset = prevOffset + limit;
+                        var nextOffset = prevOffset + (limit);
                         offset = nextOffset;
                     }else{
                         offset = limit;
@@ -349,7 +349,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         scope.kScope.data.context.eventObject = event;
                         scope.kScope.data.context.event = "keyUp";
                         scope.kScope.data.context.preventDefault = false;
-
+                        scope.kScope.data.localOverrides.query.productList.settings.offset = undefined;
                         klevu.event.fireChain(scope.kScope, "chains.events.keyUp", scope, scope.kScope.data, event);
                     });
                 });
@@ -369,11 +369,12 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         };
         klevu(options);
         klevu.search.landing.getScope().template.setTemplate(klevu.dom.helpers.getHTML("#klevuLandingTemplateLimit"), "limit", true);
-
+        
         klevu.search.landing.getScope().chains.request.build.add({
             name: "setLimits",
             fire: function (data, scope) {
                 var landingStorage = klevu.getSetting(scope.kScope.settings, "settings.storage");
+
                 klevu.each(data.request.current.recordQueries, function (key, query) {
                     var limit = (landingStorage.limits.getElement(query.id) == query.id) ? false : landingStorage.limits.getElement(query.id);
                     if (limit) {
@@ -405,7 +406,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     klevu.event.attach(value, "click", function (event) {
                         event = event || window.event;
                         event.preventDefault();
-                klevu.setObjectPath(data, "localOverrides.query.productList.settings.offset", undefined);
 
                         var section = klevu.dom.helpers.getClosest(this, ".klevuMeta");
                         var target = klevu.dom.helpers.getClosest(this, ".klevuTarget");
@@ -419,7 +419,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         scope.kScope.data.context.eventObject = event;
                         scope.kScope.data.context.event = "keyUp";
                         scope.kScope.data.context.preventDefault = false;
-
+                        scope.kScope.data.localOverrides.query.productList.settings.offset = undefined;
                         klevu.event.fireChain(scope.kScope, "chains.events.keyUp", scope, scope.kScope.data, event);
                     });
                 });
@@ -1645,7 +1645,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.each(klevu.dom.find(".klevuFilterOption", target), function (key, value) {
             klevu.event.attach(value, "click", function (event) {
 
-                klevu.setObjectPath(scope.data, "localOverrides.query.productList.settings.offset", undefined);
+                        scope.data.localOverrides.query.productList.settings.offset = undefined;
+
 
                 event = event || window.event;
                 event.preventDefault();

@@ -3,8 +3,8 @@ function startup(klevu) {
     var options = {
         url : {
             search: klevu.settings.url.protocol + '//cs2.ksearchnet.com/cs/v2/search',
-            landing : 'https://vinod-klevu.github.io/klevu-infinite-scroll/',
-            // landing : 'index.html',
+            // landing : 'https://vinod-klevu.github.io/klevu-infinite-scroll/',
+            landing : 'index.html',
 
             protocolFull: klevu.settings.url.protocol + "//"
         },
