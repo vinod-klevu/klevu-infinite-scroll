@@ -197,36 +197,30 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
                     // offset stored in variable
                     var offset; 
-                    var limit = scope.kScope.template.getData().query.productList.result.length;
+                    var landingStorage = klevu.getSetting(scope.kScope.settings, "settings.storage");
+
+                    var limit = Number(landingStorage.limits.getElement('productList'));
                     if(data.localOverrides.query.productList.settings.offset != undefined){
                         var prevOffset = data.localOverrides.query.productList.settings.offset;
-                        var nextOffset = prevOffset + (limit);
+                        var nextOffset = Number(prevOffset) + limit;
                         offset = nextOffset;
                     }else{
                         offset = limit;
                     }
-
+                        console.log("events", klevu.search.landing.getScope().chains.template.events.list());
                     klevu.search.landing.getScope().chains.events.keyUp.remove({name:"scrollToTop"});
                     // if result exist then append new data
                     if (offset > limit) {
-
-                        // we are going to render template so this chain will be called again and bind the click again
-                        // so we can avoid that by removing it.
-                        klevu.search.landing.getScope().chains.template.events.remove({name:"addPagination"});
-                        klevu.search.landing.getScope().chains.template.events.remove({name:"initializeFilterLeft"});
-                        klevu.search.landing.getScope().chains.template.events.remove({name:"attachMobileSliderFilter"});
-
                         var oldUl = klevu.dom.find('.kuResults')[0].children[0];
                         var newUl = klevu.dom.find('.kuResults', element)[0].children[0];   
                         oldUl.append(...newUl.children);
-                    } else {
-                        // else insert template
-                        target.innerHTML = '';
-                        target.classList.add("klevuTarget");
-                        scope.kScope.element.kData = data.template;
-                        scope.kScope.template.insertTemplate(target, element);
+                        klevu.dom.find('.kuResults', element)[0].children[0].innerHTML = oldUl.innerHTML;
                     }
                     
+                    target.innerHTML = '';
+                    target.classList.add("klevuTarget");
+                    scope.kScope.element.kData = data.template;
+                    scope.kScope.template.insertTemplate(target, element);
                     // tag that holds offset and we click on this to trigger next page 
                     // and then increament it's value here
                     klevu.dom.find('#loadMore')[0].dataset.page = offset;
@@ -415,7 +409,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
 
                         var scope = target.kElem;
                         scope.kScope.data = scope.kObject.resetData(scope.kElem);
-                        scope.kScope.data.context.keyCode = 0;
+                        scope.kScope.data.context.keyCode = 0; 
                         scope.kScope.data.context.eventObject = event;
                         scope.kScope.data.context.event = "keyUp";
                         scope.kScope.data.context.preventDefault = false;
