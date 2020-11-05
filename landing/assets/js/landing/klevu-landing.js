@@ -102,7 +102,6 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
         klevu.search.landing.getScope().chains.request.build.add({
             name: "addProductListFallback",
             fire: function (data, scope) {
-                ;
                 var parameterMap = klevu.getSetting(scope.kScope.settings, "settings.search.map", false);
 
                 var productListFallback = klevu.extend(true, {}, parameterMap.recordQuery);
@@ -207,7 +206,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     }else{
                         offset = limit;
                     }
-                        console.log("events", klevu.search.landing.getScope().chains.template.events.list());
+                        // console.log("events", data.response.data.queryResults[0].meta);
                     klevu.search.landing.getScope().chains.events.keyUp.remove({name:"scrollToTop"});
                     // if result exist then append new data
                     if (offset > limit) {
@@ -223,7 +222,12 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     scope.kScope.template.insertTemplate(target, element);
                     // tag that holds offset and we click on this to trigger next page 
                     // and then increament it's value here
-                    klevu.dom.find('#loadMore')[0].dataset.page = offset;
+                    var totalRecords = data.response.data.queryResults[0].meta.totalResultsFound;
+                    if (offset >= totalRecords) {
+                        klevu.dom.find('#loadMore')[0].style.display='none';
+                    }else{
+                        klevu.dom.find('#loadMore')[0].dataset.page = offset;
+                    }
                 }
             }
         });
@@ -822,7 +826,8 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                 scope.kScope.template.insertTemplate(target, element);
 
                 klevu.search.modules.quickViewService.base.bindCloseBtnClick();
-                klevu.search.modules.addToCart.base.bindAddToCartEvent();
+                // klevu.search.modules.addToCart.base.bindAddToCartEvent();
+
             }
         });
 
