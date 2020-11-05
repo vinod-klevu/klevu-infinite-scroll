@@ -229,6 +229,9 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                         }else{
                             klevu.dom.find('#loadMore')[0].dataset.page = offset;
                         }
+                    }else{
+                        klevu.dom.find('#loadMore')[0].style.display='none';
+
                     }
                 }
             }
