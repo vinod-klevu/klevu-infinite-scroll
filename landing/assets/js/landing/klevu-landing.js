@@ -222,7 +222,7 @@ klevu.coreEvent.attach("setRemoteConfigLanding", {
                     scope.kScope.template.insertTemplate(target, element);
                     // tag that holds offset and we click on this to trigger next page 
                     // and then increament it's value here
-                    if(data.response.data.queryResults.length > 0){
+                    if(data.response.data.queryResults){
                         var totalRecords = data.response.data.queryResults[0].meta.totalResultsFound;
                         if (offset >= totalRecords) {
                             klevu.dom.find('#loadMore')[0].style.display='none';
